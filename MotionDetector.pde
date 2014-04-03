@@ -22,12 +22,11 @@ class MotionDetector
   // memorizing previous frames and computing hits at particular regions of the screen
   MotionDetector(PApplet canvas, int w, int h, boolean m)
   {
-    // grab an array of our cameras
+    // grab an array of cameras
     String[] cameras = Capture.list();
 
     // create a new video object
     video = new Capture(canvas, w, h); 
-    //    video = new Capture(canvas, cameras[15]);
     video.start(); 
 
     // also create a previous frame PImage
@@ -67,7 +66,7 @@ class MotionDetector
   // will return to you whether a hit has occured within this space
   boolean checkHit(int xPos, int yPos, int w, int h)
   {
-    // load up our pixel arrays
+    // load up pixel arrays
     video.loadPixels();
     previousFrame.loadPixels();
 
@@ -77,7 +76,7 @@ class MotionDetector
     int xPosEnd   = constrain(xPos+w, 0, video.width-1);
     int yPosEnd   = constrain(yPos+h, 0, video.height-1);
 
-    // keep track of how many pixels we visited as well as how many have changed
+    // keep track of how many pixels visited as well as how many have changed
     int numPixelsChanged = 0;
     int numPixelsVisited = 0;
 
@@ -85,7 +84,7 @@ class MotionDetector
     int xMotionPosition = 0;
     int yMotionPosition = 0;
 
-    // iterate over our range
+    // iterate over range
     for (int x = xPosStart; x < xPosEnd; x++)
     {
       for (int y = yPosStart; y < yPosEnd; y++)
@@ -121,7 +120,6 @@ class MotionDetector
     if (numPixelsChanged > 0) {
       fill(255);
       noStroke();
-      //ellipse(xMotionPosition/numPixelsChanged, yMotionPosition/numPixelsChanged, 25, 25);
     }
 
     // determine if this is a hit
