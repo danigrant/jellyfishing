@@ -17,5 +17,9 @@ insert your own sound on/off icons by dropping the images into the data folder a
 
 use your own music. call the main soundtrack song.mp3 and call the noise that happens when the jellyfish are caught swoosh.wav
 
-to use your own animated files instead of the jellyfish, add them to the data folder as .pngs with the same prefix and then their order number i.e. jelly000.gif, jelly001.gif, jelly002.gif
+to use your own animated files instead of the jellyfish, add them to the data folder as .pngs with the same prefix and then their order number i.e. jelly000.gif, jelly001.gif, jelly002.gif. i used 4 digit numbers (0000, 0001, 0002). if you use something else, you need to tell the Animation class how many digits you use. change 4 in this statment:
+	String filename = imagePrefix + nf(i, 4) + ".gif";
+to however many digits you used. This is also where you would change the filetype if you did not use gifs.
+
+
 
